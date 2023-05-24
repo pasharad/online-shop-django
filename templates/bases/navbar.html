@@ -1,3 +1,4 @@
+{% load static %}
 <div class="container-fluid mb-5">
     <div class="row border-top px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
@@ -32,43 +33,41 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Shop</a>
-                        <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+                        <a href="index.html" class="nav-item nav-link active">خانه</a>
+                        <a href="shop.html" class="nav-item nav-link">خرید</a>
+                        <a href="detail.html" class="nav-item nav-link">جزئیات خرید</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"></a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                <a href="cart.html" class="dropdown-item">سبد خرید </a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contact.html" class="nav-item nav-link">درباره ما</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="" class="nav-item nav-link">Login</a>
-                        <a href="" class="nav-item nav-link">Register</a>
+                        <a href="" class="nav-item nav-link">ورود</a>
+                        <a href="" class="nav-item nav-link">ثبت نام</a>
                     </div>
                 </div>
             </nav>
             <div id="header-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="height: 410px;">
-                        <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                        <img class="img-fluid" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
-                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">۱۰٪ تخفیف اولین خرید </h4>
+                                <a href="" class="btn btn-light py-2 px-3">همین حالا خرید کنید</a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item" style="height: 410px;">
-                        <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                        <img class="img-fluid" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
-                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">۱۰٪ تخفیف اولین خرید </h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">قیمت های باور نکردنی</h3>
+                                <a href="" class="btn btn-light py-2 px-3">همین حالا خرید کنید</a>
                             </div>
                         </div>
                     </div>

@@ -1,17 +1,21 @@
 from django.db import models
 from core.models import BaseModel, NameModel
 from user.models import User
+from .manager import CategoryManager, ProductManager
+
 # Create your models here.
 
 class Discounts(NameModel):
     TYPE = [('CSH', 'cash'), ('PER', 'percent')]
     type = models.CharField(max_length=3, choices=TYPE)
     code = models.CharField(max_length=255, null=True, blank=True)
+    
 
 
 class Categorys(NameModel):
     discount = models.ForeignKey(Discounts, on_delete=models.CASCADE, null=True, blank=True)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    objects = CategoryManager()
 
 class Brands(NameModel):
     discount = models.ForeignKey(Discounts, on_delete=models.CASCADE, null=True, blank=True)
@@ -24,6 +28,7 @@ class Products(NameModel):
     category = models.ManyToManyField(Categorys)
     brand = models.ForeignKey(Brands, on_delete=models.CASCADE)
     discount = models.ForeignKey(Discounts, on_delete=models.CASCADE, null=True, blank=True)
+    objects = ProductManager()
 
 
 class Image(BaseModel):

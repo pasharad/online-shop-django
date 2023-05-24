@@ -8,6 +8,6 @@ from .models import Categorys
 
 
 def index(request):
-    categorys = Categorys.objects.all
+    categorys = Categorys.objects.get_product_number()
     content = render(request, 'index.html', {'categorys':categorys})
     return HttpResponse(content)

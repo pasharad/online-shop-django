@@ -1,0 +1,18 @@
+{% load static %}
+<head>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+{% include 'bases/topbar.html' %}
+
+{% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <div id="form" style="margin-left: 100px; margin-right: 100px;">
+        <h2>Login</h2>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">ورود</button>
+        <a class="text-dark" href="{% url 'register' %}"> حساب کاربری ندارید؟</a>
+    </div>
+</form>

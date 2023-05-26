@@ -8,6 +8,7 @@ from .manager import CategoryManager, ProductManager
 class Discounts(NameModel):
     TYPE = [('CSH', 'cash'), ('PER', 'percent')]
     type = models.CharField(max_length=3, choices=TYPE)
+    amount = models.IntegerField()
     code = models.CharField(max_length=255, null=True, blank=True)
     
 
@@ -24,7 +25,6 @@ class Products(NameModel):
     price = models.CharField(max_length=255)
     info = models.TextField(max_length=255)
     detail = models.JSONField(blank=True, null=True)
-    discount = models.CharField(max_length=255)
     category = models.ManyToManyField(Categorys)
     brand = models.ForeignKey(Brands, on_delete=models.CASCADE)
     discount = models.ForeignKey(Discounts, on_delete=models.CASCADE, null=True, blank=True)

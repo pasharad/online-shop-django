@@ -1,0 +1,16 @@
+{% load static %}
+<head>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+{% include 'bases/topbar.html' %}
+{% block content %}
+<div id="form" style="margin-left: 100px; margin-right: 100px;">
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">ثبت نام</button>
+    <a class="text-dark" href="{% url 'login' %}"> حساب کاربری دارید؟</a>
+</form>
+</div>
+{% endblock %}

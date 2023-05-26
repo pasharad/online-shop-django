@@ -7,7 +7,7 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(label='رمزعبور', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'رمز عبور'}))
 
 class RegistrationForm(UserCreationForm):
-    username = forms.CharField(label= 'نام کاربری', widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'نام کاربری'}))
+    username = forms.CharField(label= 'نام کاربری', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام کاربری'}))
     email = forms.EmailField(label= 'ایمیل', widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'ایمیل'}))
     first_name = forms.CharField(label='نام', max_length=30, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام'}))
     last_name = forms.CharField(label='نام خانوادگی', max_length=30, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام خانوادگی '}))

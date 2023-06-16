@@ -1,2 +1,8 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
 {% include 'bases/topbar.html' %}
-<h1>{{ profile.name }}</h1>
+<form method="post" style="margin: 100px 100px 100px 100px; padding: 50px 50px 50px 50px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary"> ویرایش</button>
+</form>

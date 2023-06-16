@@ -13,11 +13,11 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link" data-toggle="dropdown"> {{ c.parent.name }} <i class="fa fa-angle-down float-right mt-1"></i></a>
                                 <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    <a href="" class="dropdown-item">{{ c.name }}</a>
+                                    <a href="{% url 'category' c.id %}" class="dropdown-item">{{ c.name }}</a>
                                 </div>
                             </div>
                         {% else %}
-                    <a href="" class="nav-item nav-link">{{ c.name }}</a>
+                    <a href="{% url 'category' c.id %}" class="nav-item nav-link">{{ c.name }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -33,7 +33,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">خانه</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">خانه</a>
                         <a href="shop.html" class="nav-item nav-link">خرید</a>
                         <a href="detail.html" class="nav-item nav-link">جزئیات خرید</a>
                         <div class="nav-item dropdown">
@@ -50,7 +50,7 @@
                             <a href="{% url 'register' %}" class="nav-item nav-link">ثبت نام</a>
                             
                         {% else %}
-                        <a href="" class="nav-item nav-link">{{ user.username }}</a>
+                        <a href="{% url 'profile' %}" class="nav-item nav-link">{{ user.username }}</a>
                         <a href="{% url 'logout' %}" class="nav-item nav-link">خروج</a>
                         {% endif %}
                     </div>

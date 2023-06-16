@@ -76,7 +76,7 @@ class Payments(BaseModel):
 class OrderDetails(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payments, on_delete=models.CASCADE)
-    session = session = models.ForeignKey(ShoppingSession, on_delete=models.CASCADE)
+    session = models.ForeignKey(ShoppingSession, on_delete=models.CASCADE)
     total = models.IntegerField()
 
 

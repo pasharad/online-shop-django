@@ -1,13 +1,14 @@
 {% load static %}
 <head>
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 {% include 'bases/topbar.html' %}
 
 {% if error_message %}
     <p class="error-message">{{ error_message }}</p>
 {% endif %}
-<form method="post">
+<form method="post" id="login-form">
     {% csrf_token %}
     <div id="form" style="margin-left: 100px; margin-right: 100px;">
         <h2>Login</h2>
@@ -16,3 +17,31 @@
         <a class="text-dark" href="{% url 'register' %}"> حساب کاربری ندارید؟</a>
     </div>
 </form>
+<script>
+    $(document).ready(function() {
+    $('#login-form').submit(function(event) {
+    event.preventDefault(); // prevent the form from submitting normally
+
+    // get the form data
+    var formData = {
+      'username': $('#id_username').val(),
+      'password': $('#id_password').val()
+    };
+    console.log(formData)
+    // send the AJAX request
+    $.ajax({
+      type: 'POST',
+      url: 'http://127.0.0.1:8000/account/api/login/',
+      data: formData,
+      success: function(response) {
+        // redirect to the index page
+        window.location.assign('http://127.0.0.1:8000/shop/index/')
+      },
+      error: function(response) {
+        // show an error message
+        alert('Invalid username or password');
+      }
+    });
+  });
+});
+</script>

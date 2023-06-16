@@ -2,10 +2,9 @@ from rest_framework import generics,viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Cart, CartItem
-from .serializers import CartSerializer, CartItemSerializer
-from store.models import Product, Variation
+from .serializer import CartSerializer, CartItemSerializer
+from .models import Products, InventoryProduct
 from django.shortcuts import get_object_or_404
-from drf_yasg.utils import swagger_auto_schema
 
 
 
@@ -40,7 +39,7 @@ def _cart_id(request):
 @api_view(['POST'])
 def add_cart(request, product_id):
     current_user = request.user
-    product = Product.objects.get(id=product_id) #get the product
+    product = Products.objects.get(id=product_id) #get the product
     # If the user is authenticated
     if current_user.is_authenticated:
         product_variation = []
@@ -50,7 +49,7 @@ def add_cart(request, product_id):
                 value = request.POST[key]
 
                 try:
-                    variation = Variation.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
+                    variation = InventoryProduct.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
                     product_variation.append(variation)
                 except:
                     pass
@@ -79,7 +78,7 @@ def add_cart(request, product_id):
 
 @api_view(['POST'])
 def remove_cart(request, product_id, cart_item_id):
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Products, id=product_id)
     try:
         current_user = request.user
         if current_user.is_authenticated:
@@ -98,7 +97,7 @@ def remove_cart(request, product_id, cart_item_id):
 
 @api_view(['POST'])
 def remove_cart_item(request, product_id, cart_item_id):
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Products, id=product_id)
     try:
         current_user = request.user
         if current_user.is_authenticated:
